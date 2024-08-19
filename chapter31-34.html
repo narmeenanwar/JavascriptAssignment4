@@ -1,0 +1,178 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Date Method</title>
+    </head>
+    <body>
+        <script>
+            document.write("<h1><center><u> Date Method </u></center></h1>"); 
+    
+    ////...question:01...////
+    document.write("<h1>Question:01</h1>");  
+    ///1. Write a program that displays current date and time in your browser.
+    document.write("<p>Answer: " + new Date() + "</p>");
+
+
+
+
+    ////...question:02...////
+    
+    ///2. Write a program that alerts the current month in words. For example December.
+    alert("Current month: " + new Date().toLocaleString('default', { month: 'long' }) );
+
+
+
+    ////...question:02...////
+    
+    ///3. Write a program that alerts the first 3 letters of the current day, for example if today is Sunday then alert will show Sun.
+    const today1 = new Date();
+    const dayOfWeek1 = today1.toLocaleString("en-US", { weekday: "short" });
+    alert("today is " + dayOfWeek1.substring(0, 3));
+
+    
+
+
+
+    ////...question:04...////
+    ///4. Write a program that displays a message “It’s Fun day” if its Saturday or Sunday today.
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+        alert("It's Fun day!");
+    } else {
+        alert("It's not Fun day.");
+    }
+
+
+
+    ////...question:05...////
+    ///5. Write a program that shows the message “First fifteen days of the month” if the date is less than 16th of the month else shows “Last days of the month”.
+    const today2 = new Date();
+    const currentDate = today2.getDate();
+    const lastDayOfMonth = new Date(today2.getFullYear(), today2.getMonth() + 1, 0).getDate();
+    if (currentDate < 16) {
+        alert("First fifteen days of the month");
+    } else {
+        alert("Last days of the month");
+    }
+
+
+
+
+    ////...question:06...////
+    document.write("<h1>Question:06</h1>");
+    ///6. Write a program that determines the minutes since midnight, Jan. 1, 1970 and assigns it to a variable that hasn't been declared beforehand. Use any variable you like to represent the Date object.
+    var currentDate3 = new Date();
+    var millisecondsSince1970 = currentDate3.getTime();
+    var minutesSince1970 = Math.floor(millisecondsSince1970 / (1000 * 60));
+    document.write(minutesSince1970);
+
+
+
+
+    ////...question:07...////
+    //7. Write a program that tests whether it's before noon and alert “Its AM” else “its PM”.
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    if (hours < 12) {
+    alert("It's AM");
+    } else {
+    alert("It's PM");
+    }
+
+
+    ////...question:08...////
+    document.write("<h1>Question:08</h1>");
+    ///8. Write a program that creates a Date object for the last day of the last month of 2020 and assigns it to variable named laterDate.
+    const lastMonthDate = new Date(2020, 11, 0);
+    document.write("Last day of the last month of 2020: " + lastMonthDate);
+
+
+
+    ////...question:09...////
+    ////9. Create a date object of the starting date of this Ramadan and alert the number of days past since 1st Ramadan? Note: 1st Ramadan was on June 18, 2015
+    const ramadanStartDate = new Date(2015, 5, 18);
+    const currentDate4 = new Date();
+    const differenceInDays = Math.floor((currentDate4 - ramadanStartDate) / (1000 * 60 * 60 * 24));
+    alert("Number of days past since 1st Ramadan: " + differenceInDays);
+
+
+
+
+    ////...question:10...////
+    document.write("<h1>Question:10</h1>");
+    ///10.   Write a program that displays in your browser the seconds that elapsed between the reference date and the beginning of 2015.
+    const referenceDate = new Date(2015, 0, 1);
+    const currentDate5 = new Date();
+    const differenceInMilliseconds = currentDate5 - referenceDate;
+    const differenceInSeconds = Math.floor(differenceInMilliseconds / 1000);
+    document.write("Seconds elapsed between the reference date and the beginning of 2015: " + differenceInSeconds);
+
+
+
+
+    ////...question:11...////
+    document.write("<h1>Question:11</h1>");
+    /// 11. Create a Date object for the current date and time. Extract the hours, reset the date object an hour ahead and finally display the date object in your browser.
+    const currentDate6 = new Date();
+    const hours2 = currentDate6.getHours();
+    currentDate6.setHours(hours2 + 1);
+    document.write("Current date and time + 1 hour: " + currentDate6);
+
+
+
+
+    ////...question:12...////
+    ////12. Write a program that creates a date object and show the date in an alert box that is reset to 100 years back?
+    const currentDate7 = new Date();
+    const yearBack = currentDate7.getFullYear() - 100;
+    currentDate7.setFullYear(yearBack);
+    alert("curent day: " + currentDate7 + 
+        "Date 100 years back: " + currentDate7);
+    
+
+
+
+    ////...question:13...////
+    document.write("<h1>Question:13</h1>");    
+    ///13. Write a program to ask the user about his age. Calculate show his birth year in your browser.
+    document.write("<p>your age is:</p>");
+    var userAge = prompt("Please enter your age:");
+    var birthYear = new Date().getFullYear() - userAge;
+    document.write("Your birth year is: " + birthYear);
+
+
+    
+    
+    ////...question:14...////
+    document.write("<h1>Question:14</h1>"); 
+    //* 14. Write a program to generate your K-Electric bill in your browser. All the amounts should be rounded off to 2 decimal places. Display the following fields:                                                         a. Customer Name                                                          b. Current Month                                                          c. Number of units                                                        d. Charges per unit                                                       e. Net Amount Payable (within Due Date)                                    f. Late Payment Surcharge                                                 g. Gross Amount Payable (after Due Date)                                    Where,                                                                                                                                                  Net Amount Payable (within Due Date) = Number of units * Charges per unit & Gross Amount Payable (after Due Date) = Net Amount + Late Payment Surcharge*//
+    document.write("<h1>K-Electric bill </h1>"); 
+    var customerName = "John Doe";
+    var currentMonth = "October";
+    var numberOfUnits = 200;
+    var chargesPerUnit = 15.50;
+    var latePaymentSurcharge = 50;
+    var netAmountPayable = numberOfUnits * chargesPerUnit;
+    var grossAmountPayable = netAmountPayable + latePaymentSurcharge;
+    document.write("<table border='1'>");
+    document.write("<tr><th>Customer Name</th><td>" + customerName + "</td></tr>");
+    document.write("<tr><th>Current Month</th><td>" + currentMonth + "</td></tr>");
+    document.write("<tr><th>Number of units</th><td>" + numberOfUnits + "</td></tr>");
+    document.write("<tr><th>Charges per unit</th><td>" + chargesPerUnit.toFixed(2) + "</td /></tr>");
+    document.write("<tr><th>Net Amount Payable</th><td>" + netAmountPayable.toFixed(2) + "</td></tr>");
+    document.write("<tr><th>Late Payment Surcharge</th><td>" + latePaymentSurcharge.toFixed(2) + "</td></tr>");
+    document.write("<tr><th>Gross Amount Payable</th><td>" + grossAmountPayable.toFixed(2) + "</td></tr>");
+
+
+
+
+
+
+
+
+    </script>
+    </body>
+    </html>
